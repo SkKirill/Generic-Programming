@@ -56,6 +56,7 @@
 			label3 = new Label();
 			label4 = new Label();
 			label5 = new Label();
+			Unmutable = new Button();
 			SuspendLayout();
 			// 
 			// EnterTextBox
@@ -337,12 +338,23 @@
 			label5.TabIndex = 27;
 			label5.Text = "Место для ввода данных:";
 			// 
+			// Unmutable
+			// 
+			Unmutable.Location = new Point(321, 286);
+			Unmutable.Name = "Unmutable";
+			Unmutable.Size = new Size(94, 29);
+			Unmutable.TabIndex = 28;
+			Unmutable.Text = "Unmutable";
+			Unmutable.UseVisualStyleBackColor = true;
+			Unmutable.Click += Unmutable_Click;
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.Window;
 			ClientSize = new Size(843, 327);
+			Controls.Add(Unmutable);
 			Controls.Add(label5);
 			Controls.Add(label4);
 			Controls.Add(label3);
@@ -407,5 +419,6 @@
 		private Label label3;
 		private Label label4;
 		private Label label5;
+		private Button Unmutable;
 	}
 }

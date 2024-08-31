@@ -2,6 +2,7 @@ using GeneralizedProgramming.Model;
 using GeneralizedProgramming.Lists;
 using System;
 using GeneralizedProgramming.Utilites;
+using System.Collections.Immutable;
 
 namespace GeneralizedProgramming
 {
@@ -20,10 +21,14 @@ namespace GeneralizedProgramming
 		private void ChangeTypeList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			CreateTree();
+			EnterTextBox.Text = string.Empty;
+			EnterTextBox.Select();
 		}
 		private void ChangeDataListComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			CreateTree();
+			EnterTextBox.Text = string.Empty;
+			EnterTextBox.Select();
 		}
 
 		private void CreateTree()
@@ -358,13 +363,11 @@ namespace GeneralizedProgramming
 						MessageBox.Show(ListUtils.Exists(_mainListString, item => item.Length > 5).ToString(), "Ответ!");
 						break;
 					case 2:
-						MessageBox.Show(ListUtils.Exists(_mainListInt, item => item > 5).ToString(), "Ответ!");
+						MessageBox.Show(ListUtils.Exists(_mainListFilm, item => item.Year > 2004).ToString(), "Ответ!");
 						break;
 					default:
 						throw new NotImplementedException();
 				}
-				EnterTextBox.Text = string.Empty;
-				EnterTextBox.Select();
 			}
 			catch (Exception ex)
 			{
@@ -379,14 +382,14 @@ namespace GeneralizedProgramming
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
 					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						MessageBox.Show(ListUtils.Find(_mainListInt, item => item == Convert.ToUInt32(EnterTextBox.Text)).ToString(), "Ответ!");
+						break;
 					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						MessageBox.Show(ListUtils.Find(_mainListString, item => item == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						MessageBox.Show(ListUtils.Find(_mainListFilm, item => item.Name == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					default:
 						throw new NotImplementedException();
 				}
@@ -406,14 +409,14 @@ namespace GeneralizedProgramming
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
 					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						MessageBox.Show(ListUtils.FindLast(_mainListInt, item => item == Convert.ToUInt32(EnterTextBox.Text)).ToString(), "Ответ!");
+						break;
 					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						MessageBox.Show(ListUtils.FindLast(_mainListString, item => item == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						MessageBox.Show(ListUtils.FindLast(_mainListFilm, item => item.Name == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					default:
 						throw new NotImplementedException();
 				}
@@ -433,14 +436,14 @@ namespace GeneralizedProgramming
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
 					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						MessageBox.Show(ListUtils.FindIndex(_mainListInt, item => item == Convert.ToUInt32(EnterTextBox.Text)).ToString(), "Ответ!");
+						break;
 					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						MessageBox.Show(ListUtils.FindIndex(_mainListString, item => item == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						MessageBox.Show(ListUtils.FindIndex(_mainListFilm, item => item.Name == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					default:
 						throw new NotImplementedException();
 				}
@@ -461,14 +464,14 @@ namespace GeneralizedProgramming
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
 					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						MessageBox.Show(ListUtils.FindLastIndex(_mainListInt, item => item == Convert.ToUInt32(EnterTextBox.Text)).ToString(), "Ответ!");
+						break;
 					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						MessageBox.Show(ListUtils.FindLastIndex(_mainListString, item => item == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						MessageBox.Show(ListUtils.FindLastIndex(_mainListFilm, item => item.Name == EnterTextBox.Text).ToString(), "Ответ!");
+						break;
 					default:
 						throw new NotImplementedException();
 				}
@@ -484,7 +487,7 @@ namespace GeneralizedProgramming
 
 		private void FindAllUtilsButton_Click(object sender, EventArgs e)
 		{
-			try
+/*			try
 			{
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
@@ -506,36 +509,36 @@ namespace GeneralizedProgramming
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Ошибка!");
-			}
+			}*/
 
 		}
 
 		private void ConvertAllUtilsButton_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				switch (ChangeDataListComboBox.SelectedIndex)
-				{
-					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
-					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
-					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
-					default:
-						throw new NotImplementedException();
-				}
-				EnterTextBox.Text = string.Empty;
-				EnterTextBox.Select();
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message, "Ошибка!");
-			}
-
+			/*			try
+						{
+							switch (ChangeDataListComboBox.SelectedIndex)
+							{
+								case 0:
+									MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
+									break; вавыава
+								case 1:
+									MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
+									break; выавыа
+								case 2:
+									MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
+									break; ываываыв
+								default:
+									throw new NotImplementedException();
+							}
+							EnterTextBox.Text = string.Empty;
+							EnterTextBox.Select();
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show(ex.Message, "Ошибка!");
+						}
+			*/
 		}
 
 		private void ForEachUtilsButton_Click(object sender, EventArgs e)
@@ -545,14 +548,20 @@ namespace GeneralizedProgramming
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
 					case 0:
-						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						string s = string.Empty;
+						ListUtils.ForEach(_mainListInt, (item) => s = s + item.ToString() + " ");
+						MessageBox.Show(s, "Ответ!");
+						break;
 					case 1:
-						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						s = string.Empty;
+						ListUtils.ForEach(_mainListString, (item) => s = s + item + " ");
+						MessageBox.Show(s, "Ответ!");
+						break;
 					case 2:
-						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						s = string.Empty;
+						ListUtils.ForEach(_mainListFilm, (item) => s = s + item.ToString() + " ");
+						MessageBox.Show(s, "Ответ!");
+						break;
 					default:
 						throw new NotImplementedException();
 				}
@@ -568,7 +577,7 @@ namespace GeneralizedProgramming
 
 		private void SortUtilsButton_Click(object sender, EventArgs e)
 		{
-			try
+/*			try
 			{
 				switch (ChangeDataListComboBox.SelectedIndex)
 				{
@@ -590,7 +599,7 @@ namespace GeneralizedProgramming
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Ошибка!");
-			}
+			}*/
 		}
 
 		private void ChekcForAllUtilsButton_Click(object sender, EventArgs e)
@@ -601,18 +610,43 @@ namespace GeneralizedProgramming
 				{
 					case 0:
 						MessageBox.Show(_mainListInt[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; вавыава
+						break;
 					case 1:
 						MessageBox.Show(_mainListString[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; выавыа
+						break;
 					case 2:
 						MessageBox.Show(_mainListFilm[Convert.ToInt32(EnterTextBox.Text)].ToString(), "Ответ!");
-						break; ываываыв
+						break;
 					default:
 						throw new NotImplementedException();
 				}
 				EnterTextBox.Text = string.Empty;
 				EnterTextBox.Select();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Ошибка!");
+			}
+		}
+
+		private void Unmutable_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				switch (ChangeDataListComboBox.SelectedIndex)
+				{
+					case 0:
+						_mainListInt = new UnmutableList<int>(_mainListInt);
+						break;
+					case 1:
+						_mainListString = new UnmutableList<string>(_mainListString);
+						break;
+					case 2:
+						_mainListFilm = new UnmutableList<Film>(_mainListFilm);
+						break;
+					default:
+						throw new NotImplementedException();
+				}
 			}
 			catch (Exception ex)
 			{
